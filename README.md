@@ -80,7 +80,7 @@ export default App;
 | Property  | Type       | Description                                                                    |
 | --------- | ---------- | ------------------------------------------------------------------------------ |
 | onInit    | `Function` | Being invoked when summernote is launched                                      |
-| callbacks | `Object`   | Keys that emits event [Basic Api](https://summernote.org/deep-dive/#basic-api) |
+| callbacks | `Object`   | Keys that emits event [Basic Api](https://summernote.org/deep-dive/#callbacks) |
 
 Additional props are gotten from [summernote.org](http://summernote.org/deep-dive)
 

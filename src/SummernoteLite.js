@@ -9,7 +9,7 @@ const SummernoteLite = forwardRef((props, ref) => {
 
     useImperativeHandle(ref, () => ({
         executeCommand: function () {
-           return window.$(noteRef.current).summernote(arguments);
+           return window.$(noteRef.current).summernote(...[...arguments]);
         }
     }));
 
