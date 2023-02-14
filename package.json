@@ -1,0 +1,31 @@
+{
+  "name": "react-summernote-lite",
+  "version": "1.0.0",
+  "description": "Summernote lite without bootstrap for react (Super simple WYSIWYG editor)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deflexable/react-summernote-lite.git"
+  },
+  "peerDependencies": {
+    "jquery": "^2.2.0 || ^3.0.0"
+  },
+  "keywords": [
+    "javascript",
+    "wysiwyg",
+    "summernote",
+    "wysiwyg-editor",
+    "summernote-lite",
+    "react",
+    "react-summernote-lite"
+  ],
+  "author": "Anthony Onabanjo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deflexable/react-summernote-lite/issues"
+  },
+  "homepage": "https://github.com/deflexable/react-summernote-lite#readme"
+}
