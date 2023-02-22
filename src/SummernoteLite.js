@@ -1,7 +1,7 @@
 import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import './glob';
-import './dist-0.8.20/summernote-lite.min.css';
-import './dist-0.8.20/summernote-lite.min';
+import './dist/summernote-lite.min.css';
+import './dist/summernote-lite.min';
 
 const SummernoteLite = forwardRef((props, ref) => {
 
@@ -9,7 +9,7 @@ const SummernoteLite = forwardRef((props, ref) => {
 
     useImperativeHandle(ref, () => ({
         executeCommand: function () {
-           return window.$(noteRef.current).summernote(...[...arguments]);
+            return window.$(noteRef.current).summernote(...[...arguments]);
         }
     }));
 

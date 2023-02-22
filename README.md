@@ -1,8 +1,8 @@
 # react-summernote-lite
 
-[Summernote lite](https://github.com/summernote/summernote) without bootstrap for react
+[Summernote lite](https://github.com/summernote/summernote) without bootstrap for react with fast setup
 
-[![npm version](https://badge.fury.io/js/react-summernote.svg)](https://www.npmjs.com/package/react-summernote-lite)
+[![npm version](https://badge.fury.io/js/react-summernote-lite.svg)](https://www.npmjs.com/package/react-summernote-lite)
 
 ### Getting Started
 
@@ -17,7 +17,7 @@ npm install react-summernote-lite jquery --save
 or using yarn
 
 ```
-npm install react-summernote-lite jquery
+yarn add react-summernote-lite jquery
 ```
 
 Not additional setup needed
@@ -25,8 +25,10 @@ Not additional setup needed
 ### Example
 
 ```js
-import React, { Component } from "react";
-import SummernoteLite from "react-summernote";
+import SummernoteLite from "react-summernote-lite";
+
+// only import if you want to change default language
+import 'react-summernote-lite/src/dist/lang/summernote-zh-CN.min';
 
 const App = () => {
   const [imageFiles, setImageFiles] = useState([]);
@@ -34,12 +36,13 @@ const App = () => {
   const noteRef = useRef();
 
   return (
+    <div>
     <SummernoteLite
       ref={noteRef}
       onInit={()=> {}}
       placeholder={"Write something here..."}
       tabsize={2}
-      lang="ru-RU"
+      lang="zh-CN" // only if you want to change the default language
       height={350 || "50vh"}
       dialogsInBody={true}
       blockquoteBreakingLevel={0}
@@ -69,6 +72,15 @@ const App = () => {
         onPaste: function (e){}
       }
     />
+
+    <button
+        style={{ marginTop: 9 }}
+        onClick={() => {
+            noteRef.current.executeCommand('fullscreen.toggle');
+        }}>
+        Fullscreen
+    </button>
+    </div>
   );
 };
 
@@ -95,19 +107,19 @@ executeCommand(...[arguments]);
 
 ```js
 // You can toggle editable/codable view by. (https://summernote.org/deep-dive/#codeview);
-noteRef.current.executeCommand('codeview.toggle');
+noteRef.current.executeCommand("codeview.toggle");
 
 // You can toggle Fullscreen view by. (https://summernote.org/deep-dive/#fullscreen);
-noteRef.current.executeCommand('fullscreen.toggle');
+noteRef.current.executeCommand("fullscreen.toggle");
 
 // Insert an image. (https://summernote.org/deep-dive/#insertimage);
-noteRef.current.executeCommand('insertImage', url, filename);
+noteRef.current.executeCommand("insertImage", url, filename);
 
 // Insert an image. (https://summernote.org/deep-dive/#insertimage);
-noteRef.current.executeCommand('insertImage', url, function ($image){});
+noteRef.current.executeCommand("insertImage", url, function ($image) {});
 
 // Insert an element or textnode. (https://summernote.org/deep-dive/#insertnode);
-noteRef.current.executeCommand('insertNode', node);
+noteRef.current.executeCommand("insertNode", node);
 
 // please visit https://summernote.org/deep-dive/#basic-api to discover more of this apis
 ```

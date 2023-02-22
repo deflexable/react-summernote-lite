@@ -1,6 +1,6 @@
 {
   "name": "react-summernote-lite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Summernote lite without bootstrap for react (Super simple WYSIWYG editor)",
   "main": "index.js",
   "scripts": {
