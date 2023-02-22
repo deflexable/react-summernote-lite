@@ -1,4 +1,4 @@
-import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
+import React, { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import './glob';
 import './dist/summernote-lite.min.css';
 import './dist/summernote-lite.min';
