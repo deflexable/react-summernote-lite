@@ -28,7 +28,7 @@ Not additional setup needed
 import SummernoteLite from "react-summernote-lite";
 
 // only import if you want to change default language
-import 'react-summernote-lite/src/dist/lang/summernote-zh-CN.min';
+import 'react-summernote-lite/dist/dist/lang/summernote-zh-CN.min';
 
 const App = () => {
   const [imageFiles, setImageFiles] = useState([]);
