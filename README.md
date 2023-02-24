@@ -27,6 +27,9 @@ Not additional setup needed
 ```js
 import SummernoteLite from "react-summernote-lite";
 
+// to see the default props for SummernoteLite
+import { DEFAULT_PROPS } from "react-summernote-lite";
+
 // only import if you want to change default language
 import 'react-summernote-lite/dist/dist/lang/summernote-zh-CN.min';
 
@@ -39,7 +42,7 @@ const App = () => {
     <div>
     <SummernoteLite
       ref={noteRef}
-      onInit={()=> {}}
+      defaultCodeValue={'<p>This is the default html value</p>'}
       placeholder={"Write something here..."}
       tabsize={2}
       lang="zh-CN" // only if you want to change the default language
@@ -76,7 +79,7 @@ const App = () => {
     <button
         style={{ marginTop: 9 }}
         onClick={() => {
-            noteRef.current.executeCommand('fullscreen.toggle');
+            noteRef.current.summernote('fullscreen.toggle');
         }}>
         Fullscreen
     </button>
@@ -85,14 +88,15 @@ const App = () => {
 };
 
 export default App;
-```
 
+```
 ### PropTypes
 
-| Property  | Type       | Description                                                                    |
-| --------- | ---------- | ------------------------------------------------------------------------------ |
-| onInit    | `Function` | Being invoked when summernote is launched                                      |
-| callbacks | `Object`   | Keys that emits event [Basic Api](https://summernote.org/deep-dive/#callbacks) |
+| Property          | Type       | Description                                                                    |
+| ----------------- | ---------- | ------------------------------------------------------------------------------ |
+| defaultCodeValue  | `string`   | The default html value of summernote                                           |
+| callbacks         | `Object`   | Keys that emits event [Callbacks](https://summernote.org/deep-dive/#callbacks) |
+| useDiv            | `boolean`  | By default summernote is mounted using <textarea>, set this to true for <div>  |
 
 Additional props are gotten from [summernote.org](http://summernote.org/deep-dive)
 
@@ -100,26 +104,33 @@ Additional props are gotten from [summernote.org](http://summernote.org/deep-div
 
 ```js
 // please visit https://summernote.org/deep-dive/#basic-api for available commands
-executeCommand(...[arguments]);
+summernote(...[arguments]);
+
+// get the react reference of the <textarea> or <div> if useDiv={true} 
+getNoteRef(): React.LegacyRef;
+
+// get the react reference of the <form> </form>
+// please note this will be undefined if useDiv={true} 
+getFormRef(): React.LegacyRef;
 ```
 
 ##### Example
 
 ```js
 // You can toggle editable/codable view by. (https://summernote.org/deep-dive/#codeview);
-noteRef.current.executeCommand("codeview.toggle");
+noteRef.current.summernote("codeview.toggle");
 
 // You can toggle Fullscreen view by. (https://summernote.org/deep-dive/#fullscreen);
-noteRef.current.executeCommand("fullscreen.toggle");
+noteRef.current.summernote("fullscreen.toggle");
 
 // Insert an image. (https://summernote.org/deep-dive/#insertimage);
-noteRef.current.executeCommand("insertImage", url, filename);
+noteRef.current.summernote("insertImage", url, filename);
 
 // Insert an image. (https://summernote.org/deep-dive/#insertimage);
-noteRef.current.executeCommand("insertImage", url, function ($image) {});
+noteRef.current.summernote("insertImage", url, function ($image) {});
 
 // Insert an element or textnode. (https://summernote.org/deep-dive/#insertnode);
-noteRef.current.executeCommand("insertNode", node);
+noteRef.current.summernote("insertNode", node);
 
 // please visit https://summernote.org/deep-dive/#basic-api to discover more of this apis
 ```
