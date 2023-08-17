@@ -45,7 +45,7 @@ interface Commands {
     insertNode: (command: 'insertNode', node?: React.Component | any) => void
 }
 
-export default class SummernoteLite extends React.Component<SummernoteLiteProps>{
+export class SummernoteLite extends React.Component<SummernoteLiteProps>{
     summernote: Commands['insertImage'] | Commands['insertNode'] | Commands['toggleCodeview'] | Commands['toggleFullscreen'];
     getNoteRef: () => React.LegacyRef<HTMLTextAreaElement> | React.LegacyRef<HTMLDivElement>;
     getFormRef: () => React.LegacyRef<HTMLFormElement>;

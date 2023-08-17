@@ -1,9 +1,8 @@
 {
   "name": "react-summernote-lite",
-  "version": "1.0.9",
+  "version": "1.1.7",
   "description": "Summernote lite without bootstrap for react (Super simple WYSIWYG editor)",
-  "main": "dist/SummernoteLite.js",
-  "module": "dist/SummernoteLite.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && NODE_ENV=production babel lib --out-dir dist --copy-files"

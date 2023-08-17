@@ -20,7 +20,7 @@ or using yarn
 yarn add react-summernote-lite jquery
 ```
 
-Not additional setup needed
+No additional setup needed
 
 ### Example
 
