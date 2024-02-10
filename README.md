@@ -25,13 +25,16 @@ No additional setup needed
 ### Example
 
 ```js
-import SummernoteLite from "react-summernote-lite";
+import { SummernoteLite } from "react-summernote-lite";
 
 // to see the default props for SummernoteLite
 import { DEFAULT_PROPS } from "react-summernote-lite";
 
-// only import if you want to change default language
+// only import if you want to add some languages
 import 'react-summernote-lite/dist/dist/lang/summernote-zh-CN.min';
+
+// only import if you want to add some fonts
+import 'react-summernote-lite/dist/dist/font/summernote.ttf';
 
 const App = () => {
   const [imageFiles, setImageFiles] = useState([]);
