@@ -25,7 +25,7 @@ No additional setup needed
 ### Example
 
 ```js
-import { SummernoteLite } from "react-summernote-lite";
+import SummernoteLite from "react-summernote-lite";
 
 // to see the default props for SummernoteLite
 import { DEFAULT_PROPS } from "react-summernote-lite";

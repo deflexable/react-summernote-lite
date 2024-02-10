@@ -1,7 +1,4 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
-import './glob';
-import './dist/summernote-lite.min.css';
-import './dist/summernote-lite.min.js';
 
 const SummernoteLite = forwardRef((props, ref) => {
 
@@ -18,6 +15,9 @@ const SummernoteLite = forwardRef((props, ref) => {
     }));
 
     useEffect(() => {
+        require('./glob');
+        require('./dist/summernote-lite.min.css');
+        require('./dist/summernote-lite.min.js');
         const refactoredProps = { ...DEFAULT_PROPS, ...props };
 
         window.$(noteRef.current).summernote(refactoredProps);

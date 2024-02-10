@@ -1,7 +1,6 @@
 import React from "react";
 
-class DefaultValue {
-    constructor() { }
+export interface DEFAULT_PROPS {
     placeholder: 'Write something here...';
     tabsize: 2;
     height: 370;
@@ -9,8 +8,6 @@ class DefaultValue {
     fontNames: FontName[];
     toolbar: SummernoteLiteProps['toolbar'];
 };
-
-export const DEFAULT_PROPS = new DefaultValue();
 
 type FontName = 'Arial' | 'Brush Script MT' | 'Calibri' | 'Candara' | 'Century Gothic' | 'Consolas' | 'Dejavu Sans' | 'Franklin Gothic' | 'Gill Sans' | 'Geneva' | 'Georgia' | 'Garamond' | 'Helvetica' | 'Lucida Sans' | 'MS Sans Serif' | 'Neue Helvetica' | 'Optima' | 'Segoe UI' | 'Tahoma' | 'Trebuchet MS' | 'Verdana';
 
@@ -45,7 +42,7 @@ interface Commands {
     insertNode: (command: 'insertNode', node?: React.Component | any) => void
 }
 
-export class SummernoteLite extends React.Component<SummernoteLiteProps>{
+export default class SummernoteLite extends React.Component<SummernoteLiteProps>{
     summernote: Commands['insertImage'] | Commands['insertNode'] | Commands['toggleCodeview'] | Commands['toggleFullscreen'];
     getNoteRef: () => React.LegacyRef<HTMLTextAreaElement> | React.LegacyRef<HTMLDivElement>;
     getFormRef: () => React.LegacyRef<HTMLFormElement>;
