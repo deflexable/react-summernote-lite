@@ -16,7 +16,6 @@ const SummernoteLite = forwardRef((props, ref) => {
     }));
 
     useEffect(() => {
-        require('./dist/summernote-lite.min.css');
         require('./dist/summernote-lite.min.js');
         const refactoredProps = { ...DEFAULT_PROPS, ...props };
 
