@@ -35,6 +35,7 @@ interface SummernoteLiteProps {
     toolbar: ToolbarItem[];
     lang: Lang;
     callbacks: {
+        onChange: (contents: string, $editable: any) => void;
         onImageUpload: (files: File[]) => void;
     };
 }
