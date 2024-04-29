@@ -40,14 +40,18 @@ interface SummernoteLiteProps {
 }
 
 interface Commands {
-    insertImage: (command: 'insertImage', url: string, callback: (image: Object) => void) => void
-    toggleCodeview: (command: 'codeview.toggle') => void
-    toggleFullscreen: (command: 'fullscreen.toggle') => void
-    insertNode: (command: 'insertNode', node?: React.Component | any) => void
+    insertImage: (command: 'insertImage', url: string, callback?: (image: Object) => void) => void;
+    toggleCodeview: (command: 'codeview.toggle') => void;
+    toggleFullscreen: (command: 'fullscreen.toggle') => void;
+    insertNode: (command: 'insertNode', node?: React.Component | any) => void;
 }
 
-export default class SummernoteLite extends React.Component<SummernoteLiteProps>{
-    summernote: Commands['insertImage'] | Commands['insertNode'] | Commands['toggleCodeview'] | Commands['toggleFullscreen'];
+type SummernoteCommandFunction = {
+    [K in keyof Commands]: Commands[K];
+};
+
+export default class SummernoteLite extends React.Component<SummernoteLiteProps> {
+    summernote: (command: keyof Commands, ...args: any[]) => void;
     getNoteRef: () => React.LegacyRef<HTMLTextAreaElement> | React.LegacyRef<HTMLDivElement>;
     getFormRef: () => React.LegacyRef<HTMLFormElement>;
 }
