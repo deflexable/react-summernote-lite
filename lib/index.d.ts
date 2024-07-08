@@ -31,13 +31,14 @@ interface SummernoteLiteProps {
     defaultCodeValue: string;
     useDiv: boolean;
     height: string | number;
+    dialogsInBody: boolean;
     blockquoteBreakingLevel: number;
     fontNames: FontName[];
     toolbar: ToolbarItem[];
     lang: Lang;
     callbacks: {
         onChange: (contents: string, $editable: any) => void;
-        onImageUpload: (files: File[]) => void;
+        onImageUpload?: (files: File[]) => void;
     };
 }
 
