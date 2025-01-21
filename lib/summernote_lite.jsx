@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import './glob';
 
+if (
+    typeof window !== 'undefined' &&
+    typeof location !== 'undefined' &&
+    typeof document !== 'undefined'
+) {
+    require('./dist/summernote-lite.min.js');
+}
+
 const SummernoteLite = forwardRef((props, ref) => {
 
     const noteRef = useRef(),

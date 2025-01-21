@@ -1,12 +1,14 @@
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import postcss from 'rollup-plugin-postcss';
+import { readFileSync } from 'fs';
 
 export default {
-    input: ['./lib/index.js'],
+    input: './lib/index.js',
     plugins: [
-        resolve(),
+        resolve({
+            extensions: ['.js', '.jsx'],
+        }),
         babel({
             babelHelpers: 'bundled',
             presets: [
@@ -14,34 +16,39 @@ export default {
                 '@babel/preset-react'
             ]
         }),
-        terser(),
-        postcss({
-            plugins: [
-                require('postcss-import')(),
-                require('postcss-preset-env')({
-                    stage: 0,
-                })
-            ],
-            extract: true, // Extract CSS to a separate file
-            extensions: ['.css'], // Process CSS files only
-            minimize: true // Minimize CSS output
-        })
+        {
+            name: 'inline-summernote',
+            transform(code) {
+                const targetFile = './dist/summernote-lite.min.js';
+
+                // Check if the code contains the require statement
+                if (code.includes(`require('${targetFile}')`)) {
+                    // Read the content of the target file
+                    const fileContent = readFileSync('./lib/dist/summernote-lite.min.js', 'utf-8');
+
+                    // Replace the require statement with the file's content
+                    const inlinedCode = code.replace(
+                        `require('${targetFile}')`,
+                        `(() => { ${fileContent} })();`
+                    );
+
+                    return { code: inlinedCode, map: null };
+                }
+
+                return null;
+            }
+        },
+        terser()
     ],
     output: [
         {
-            dir: 'dist/esm',
-            format: 'es',
-            assetFileNames: '[name].[ext]'
+            file: 'dist/esm.min.js',
+            format: 'es'
         },
         {
-            dir: 'dist/cjs',
-            format: 'cjs',
-            assetFileNames: '[name].[ext]'
-        },
-        // {
-        //   file: 'dist/esm/index.min.js',
-        //   format: 'es',
-        // },
+            file: 'dist/cjs.min.js',
+            format: 'cjs'
+        }
     ],
-    external: ['react', 'jquery', './dist/summernote-lite.min.css']
+    external: ['react', 'jquery']
 };
