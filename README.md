@@ -25,16 +25,19 @@ No additional setup needed
 ### Example
 
 ```js
+// summernote script must be loaded into the dom before mounting <SummernoteLite />
+import 'react-summernote-lite/dist/cjs/dist/summernote-lite.min.js';
+
 import SummernoteLite from "react-summernote-lite";
 
 // you need to iport the css style yourself
 import 'react-summernote-lite/dist/esm/dist/summernote-lite.min.css';
 
 // only import if you want to add some languages
-import 'react-summernote-lite/dist/dist/lang/summernote-zh-CN.min';
+import 'react-summernote-lite/dist/cjs/dist/lang/summernote-zh-CN.min';
 
 // only import if you want to add some fonts
-import 'react-summernote-lite/dist/dist/font/summernote.ttf';
+import 'react-summernote-lite/dist/cjs/dist/font/summernote.ttf';
 
 const App = () => {
   const [imageFiles, setImageFiles] = useState([]);

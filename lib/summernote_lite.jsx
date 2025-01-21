@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import './glob';
-import './dist/summernote-lite.min.js';
 
 const SummernoteLite = forwardRef((props, ref) => {
 

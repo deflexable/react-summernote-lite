@@ -43,5 +43,5 @@ export default {
         //   format: 'es',
         // },
     ],
-    external: ['react', 'jquery', './dist/summernote-lite.min.css', './dist/summernote-lite.min.js']
+    external: ['react', 'jquery', './dist/summernote-lite.min.css']
 };
