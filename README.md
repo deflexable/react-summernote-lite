@@ -27,9 +27,6 @@ No additional setup needed
 ```js
 import SummernoteLite from "react-summernote-lite";
 
-// to see the default props for SummernoteLite
-import { DEFAULT_PROPS } from "react-summernote-lite";
-
 // you need to iport the css style yourself
 import 'react-summernote-lite/dist/esm/dist/summernote-lite.min.css';
 
